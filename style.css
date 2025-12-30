@@ -1,24 +1,5 @@
-.hero-text h1 {
-  font-weight: 800;
-  font-size: 5rem;
-}
-
-.hero-text h2 {
-  font-weight: lighter;
-}
-
-.hero-img {
-  height: 100vh;
-  background-image: linear-gradient(rgba(91, 106, 72, 0.55)),
-    url("resources/images/placeholder1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
 .hero-text {
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -27,9 +8,29 @@
   color: #faf6f6;
 }
 
+.hero-text h1 {
+  font-weight: 800;
+  font-size: 5rem;
+  text-shadow: 5px 5px black;
+}
+
+.hero-text h2 {
+  font-weight: lighter;
+}
+
+.hero-img {
+  height: 100vh;
+  background-image: linear-gradient(#5b6a488c),
+    url("resources/images/placeholder1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
 .bordertext {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
+  font-family: "Epilogue", sans-serif;
+  font-weight: 800;
   color: black;
 }
 
@@ -39,7 +40,7 @@
 }
 
 footer {
-  background-color: #8A9A5B;
+  background-color: #8a9a5b;
 }
 
 .ftr-icon {
@@ -49,7 +50,11 @@ footer {
 }
 
 .ftrtext {
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   text-align: center;
   color: #faf6f6;
+}
+
+a {
+  text-decoration: none;
 }
