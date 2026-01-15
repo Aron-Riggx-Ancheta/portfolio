@@ -2,29 +2,6 @@
   color-scheme: dark;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-      90deg,
-      rgba(138, 154, 91, 0.05) 0,
-      rgba(138, 154, 91, 0.05) 1px,
-      transparent 1px,
-      transparent 90px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(138, 154, 91, 0.05) 0,
-      rgba(138, 154, 91, 0.05) 1px,
-      transparent 1px,
-      transparent 90px
-    );
-
-  z-index: -1;
-  pointer-events: none;
-}
-
 .hero-text {
   font-family: "Epilogue", sans-serif;
   text-align: center;
@@ -59,7 +36,7 @@ body::before {
   font-family: "Epilogue", sans-serif;
   font-weight: 800;
   color: #f3f3f3;
-  text-shadow: 5px 5px #8a9a5b;
+  text-shadow: 2px 2px #8a9a5b;
 }
 
 .ts-icon {
@@ -108,9 +85,11 @@ a {
 .page-loaded .section:nth-child(1) {
   transition-delay: 0.2s;
 }
+
 .page-loaded .section:nth-child(2) {
   transition-delay: 0.4s;
 }
+
 .page-loaded .section:nth-child(3) {
   transition-delay: 0.6s;
 }
@@ -146,7 +125,7 @@ a {
 
 .panel:hover {
   transform: skewX(-8deg) translateY(-10px);
-  filter: brightness(0.9);
+  filter: brightness(0.8);
 }
 
 .panel-image {
@@ -220,11 +199,40 @@ a {
 
   font-size: 0.85rem;
   line-height: 1.4;
-  color: rgba(239, 239, 239, 0.75);
-
+  font-weight: 600;
+  color: #fff;
   opacity: 0;
   transform: translateY(5px);
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.panel-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: max-height 0.6s ease, opacity 0.4s ease;
+
+  margin-top: 2rem;
+  padding: 0 1rem;
+
+  border-top: 1px solid rgba(138, 154, 91, 0.3);
+}
+
+.panel-details.active {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.panel-details h3 {
+  margin-top: 1.5rem;
+  font-size: 1.8rem;
+  color: #8a9a5b;
+}
+
+.panel-details p {
+  max-width: 600px;
+  color: rgba(239, 239, 239, 0.85);
 }
 
 .panel-arrow {
@@ -262,33 +270,33 @@ a {
     padding-left: 1rem;
     transform: none;
   }
-}
 
-.panel-image {
-  position: absolute;
-  inset: 0;
-}
+  .panel-image {
+    position: absolute;
+    inset: 0;
+  }
 
-.panel-image img {
-  transform: none;
-  object-fit: cover;
-}
+  .panel-image img {
+    transform: none;
+    object-fit: cover;
+  }
 
-.panel-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.2),
-    transparent
-  );
-}
+  .panel-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.2),
+      transparent
+    );
+  }
 
-.panel-arrow {
-  position: absolute;
-  right: 1rem;
-  bottom: 50%;
-  translate: 0 50%;
+  .panel-arrow {
+    position: absolute;
+    right: 1rem;
+    bottom: 50%;
+    translate: 0 50%;
+  }
 }

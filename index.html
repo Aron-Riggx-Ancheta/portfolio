@@ -42,6 +42,29 @@
       background-color: #1a1919;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+          90deg,
+          rgba(138, 154, 91, 0.05) 0,
+          rgba(138, 154, 91, 0.05) 1px,
+          transparent 1px,
+          transparent 90px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(138, 154, 91, 0.05) 0,
+          rgba(138, 154, 91, 0.05) 1px,
+          transparent 1px,
+          transparent 90px
+        );
+
+      z-index: -1;
+      pointer-events: none;
+    }
+
     .loader {
       position: fixed;
       inset: 0;
@@ -94,7 +117,7 @@
       <div class="container-fluid p-3 mt-3 text-center">
         <div class="row">
           <div class="col-12">
-            <h1 class="display-3 bordertext p-3 m-3">> who am i?</h1>
+            <h1 class="display-3 bordertext p-3 m-3">> about me</h1>
           </div>
         </div>
       </div>
@@ -103,7 +126,7 @@
         <div class="row">
           <img
             src="resources/images/placeholder2.png"
-            class="img-fluid mx-auto p-3"
+            class="img-fluid mx-auto p-3 w-50 h-50"
           />
           <p class="p-3" style="color: #f3f3f3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -234,8 +257,73 @@
         </div>
       </div>
 
-      <section class="panel-container container">
+      <section class="panel-container container-fluid">
         <div class="panels">
+          <div class="panel">
+            <div class="panel-title">
+              <div class="row">
+                <span class="panel-eyebrow">GAME</span>
+              </div>
+              <h2 class="panel-heading">WALL CLIMB</h2>
+              <p class="panel-desc d-none d-md-block">
+                Group project. An infinite platformer game that tested the
+                limits of the genre by making it multiplayer and having 6
+                players at the same time attempting to outrun the others.
+              </p>
+              <p class="panel-desc d-none d-md-block">
+                Created GameMaker. I handled the story, character design and
+                coding of the project.
+              </p>
+            </div>
+
+            <div class="panel-image">
+              <img src="resources/images/placeholder6.png" alt="" />
+            </div>
+
+            <span class="panel-arrow">›</span>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">
+              <div class="row">
+                <span class="panel-eyebrow">WEBSITE</span>
+              </div>
+              <h2 class="panel-heading">Monster Hunter</h2>
+              <p class="panel-desc d-none d-md-block">
+                Solo project. Monster Hunter themed website also stylized to be
+                like if they had their version of the Olympics.
+              </p>
+              <p class="panel-desc d-none d-md-block">
+                Created using HTML, CSS, Js and Bootstrap.
+              </p>
+            </div>
+
+            <div class="panel-image">
+              <img src="resources/images/placeholder7.jpeg" alt="" />
+            </div>
+
+            <span class="panel-arrow">›</span>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">
+              <div class="row">
+                <span class="panel-eyebrow">WEBSITE</span>
+              </div>
+              <h2 class="panel-heading">BATTLEForge</h2>
+              <p class="panel-desc d-none d-md-block">
+                Monster Hunter themed website also stylized to be like if they
+                had their version of the Olympics.
+              </p>
+            </div>
+
+            <div class="panel-image">
+              <img src="resources/images/placeholder5.jpeg" alt="" />
+            </div>
+
+            <span class="panel-arrow">›</span>
+          </div>
+
           <div class="panel">
             <div class="panel-title">
               <div class="row">
@@ -250,52 +338,11 @@
 
             <span class="panel-arrow">›</span>
           </div>
+        </div>
 
-          <div class="panel">
-            <div class="panel-title">
-              <div class="row">
-                <span class="panel-eyebrow">GROUP</span>
-              </div>
-              <h2 class="panel-heading">BATTLEForge</h2>
-            </div>
-
-            <div class="panel-image">
-              <img src="resources/images/placeholder5.jpeg" alt="" />
-            </div>
-
-            <span class="panel-arrow">›</span>
-          </div>
-
-          <div class="panel">
-            <div class="panel-title">
-              <div><span class="panel-eyebrow">GROUP - GAME</span></div>
-              <h2 class="panel-heading">WALL CLIMB</h2>
-            </div>
-
-            <div class="panel-image">
-              <img src="resources/images/placeholder6.png" alt="" />
-            </div>
-
-            <span class="panel-arrow">›</span>
-          </div>
-
-          <div class="panel">
-            <div class="panel-title">
-              <div class="row">
-                <span class="panel-eyebrow">SOLO</span>
-              </div>
-              <h2 class="panel-heading">Monster Hunter</h2>
-              <p class="panel-desc d-none d-md-block">
-                Monster Hunter themed website also stylized to be like if they had their version of the Olympics.
-              </p>
-            </div>
-
-            <div class="panel-image">
-              <img src="resources/images/placeholder7.jpeg" alt="" />
-            </div>
-
-            <span class="panel-arrow">›</span>
-          </div>
+        <div class="panel-details" id="panelDetails">
+          <h3 id="detailsTitle"></h3>
+          <p id="detailsDesc"></p>
         </div>
       </section>
 
@@ -307,56 +354,11 @@
         </div>
       </div>
 
-      <section class="container text-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
-              <div class="card">
-                <div class="card-img-top">
-                  <img
-                    src="resources/images/artwork1.png"
-                    class="img-fluid img-thumbnail w-100"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
-              <div class="card">
-                <div class="card-img-top">
-                  <img
-                    src="resources/images/artwork2.png"
-                    class="img-fluid img-thumbnail w-100"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6 mb-3">
-              <div class="card">
-                <div class="card-img-top">
-                  <img
-                    src="resources/images/artwork3.png"
-                    class="img-fluid img-thumbnail w-100"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6 mb-3">
-              <div class="card">
-                <div class="card-img-top">
-                  <img
-                    src="resources/images/artwork4.png"
-                    class="img-fluid img-thumbnail w-100"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section class="carousel container text-center">
+        
       </section>
     </main>
+
     <footer class="container-fluid text-center p-3 mt-5">
       <div class="row mt-3">
         <div class="col-12">
@@ -394,12 +396,12 @@
       </div>
       <div class="row mt-3">
         <div class="col-12">
-          <h6 class="ftrtext">© aron riggx ancheta ║ portfolio v2.0</h6>
+          <h6 class="ftrtext">© aron riggx ancheta ║ portfolio v2026</h6>
         </div>
       </div>
       <div class="row text-center p-1">
         <div class="col-6">
-          <a href="old/index.html"><p class="ftrtext">← v1.0</p></a>
+          <a href="old/index.html"><p class="ftrtext">← v2024</p></a>
         </div>
         <div class="col-6">
           <a href="404.html"><p class="ftrtext">→ 404</p></a>
