@@ -1,3 +1,26 @@
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(138, 154, 91, 0.05) 0,
+      rgba(138, 154, 91, 0.05) 1px,
+      transparent 1px,
+      transparent 90px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(138, 154, 91, 0.05) 0,
+      rgba(138, 154, 91, 0.05) 1px,
+      transparent 1px,
+      transparent 90px
+    );
+
+  z-index: -1;
+  pointer-events: none;
+}
+
 .hero-text {
   font-family: "Epilogue", sans-serif;
   text-align: center;
@@ -11,7 +34,7 @@
 .hero-text h1 {
   font-weight: 800;
   font-size: 5rem;
-  text-shadow: 5px 5px black;
+  text-shadow: 5px 5px #8a9a5b;
 }
 
 .hero-text h2 {
@@ -31,12 +54,13 @@
 .bordertext {
   font-family: "Epilogue", sans-serif;
   font-weight: 800;
-  color: black;
+  color: #f3f3f3;
 }
 
 .ts-icon {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
 }
 
 footer {
@@ -57,4 +81,38 @@ footer {
 
 a {
   text-decoration: none;
+}
+
+.hero,
+.section,
+.card,
+.banner-img {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.page-loaded .hero,
+.page-loaded .section,
+.page-loaded .card,
+.page-loaded .banner-img {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.page-loaded .section:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.page-loaded .section:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.page-loaded .section:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
