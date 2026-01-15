@@ -121,11 +121,12 @@ a {
   transform: skewX(-8deg);
   transition: transform 0.4s ease, filter 0.4s ease;
   box-shadow: 5px 5px #8a9a5b;
+  filter: brightness(0.8);
 }
 
 .panel:hover {
   transform: skewX(-8deg) translateY(-10px);
-  filter: brightness(0.8);
+  filter: brightness(1.0);
 }
 
 .panel-image {
@@ -172,7 +173,8 @@ a {
   display: block;
   font-size: 0.75rem;
   letter-spacing: 0.25em;
-  color: #f3f3f3;
+  color: #5d6b33;
+  text-shadow: 1px 1px #f3f3f3;
   text-transform: uppercase;
 }
 
@@ -181,7 +183,7 @@ a {
   font-weight: 800;
   line-height: 1;
   margin: 0.2rem 0 0;
-  color: #f3f3f3;
+  color: #fafafa;
 }
 
 .panel-heading::after {
