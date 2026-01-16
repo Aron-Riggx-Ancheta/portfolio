@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cinematic Image Carousel — Endfield style</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#070707;
+    --panel:#0f0f10;
+    --accent:#ffdf2d;    /* bright accent (change if you prefer green) */
+    --muted:#9a9a9a;
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:#fff;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    height: 70vh;
+    min-height:420px;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+
+  /* background image element with fade-in on change */
+  .hero-media {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition: opacity .6s ease;
+    will-change: opacity;
+  }
+
+  /* overlay vignette + subtle grain */
+  .hero-overlay {
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 20%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.85) 100%),
+      linear-gradient(to top, rgba(0,0,0,0.75), transparent 35%);
+    pointer-events:none;
+  }
+
+  /* left column metadata */
+  .hero-content {
+    position:relative;
+    z-index:5;
+    max-width:50%;
+    padding: 40px 40px 80px 40px;
+  }
+
+  .eyebrow {
+    display:inline-block;
+    padding:6px 10px;
+    background:rgba(255,255,255,0.06);
+    color:var(--muted);
+    font-size:.8rem;
+    border-radius:4px;
+    margin-bottom:.75rem;
+  }
+
+  .hero-date{
+    display:block;
+    color:var(--accent);
+    font-weight:700;
+    margin:6px 0;
+    font-size:.95rem;
+  }
+
+  .hero-title{
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
+    margin:6px 0 0;
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+
+  /* thin accent rule at bottom of hero */
+  .hero-rule{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:3px;
+    background:linear-gradient(90deg, transparent, var(--accent) 30%, transparent 70%);
+    z-index:6;
+  }
+
+  /* ---------- THUMB RAIL (bottom-right overlapping) ---------- */
+  .thumb-rail {
+    position:absolute;
+    right:40px;
+    bottom:20px;
+    z-index:8;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    align-self:flex-end;
+  }
+
+  .thumb-list {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:4px;
+    background:rgba(0,0,0,0.35);
+    border-radius:10px;
+    backdrop-filter: blur(6px);
+  }
+
+  .thumb {
+    width:120px;
+    height:70px;
+    overflow:hidden;
+    border-radius:8px;
+    display:block;
+    position:relative;
+    flex:0 0 auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+  }
+
+  .thumb img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transform-origin:center;
+  }
+
+  .thumb--active {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.7);
+    outline: 4px solid var(--accent);
+    outline-offset: -6px;
+  }
+
+  /* arrow buttons */
+  .rail-arrow {
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    cursor:pointer;
+    flex:0 0 auto;
+  }
+
+  .rail-arrow svg{ width:18px; height:18px; }
+
+  /* small indicators under the thumbnails (optional) */
+  .thumb-meta {
+    display:none;
+  }
+
+  /* ---------- LEFT PLAY CTA ---------- */
+  .hero-cta {
+    position:absolute;
+    left:40px;
+    bottom:30px;
+    z-index:9;
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .play-btn {
+    width:46px;
+    height:46px;
+    border-radius:8px;
+    background:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#000;
+    font-weight:700;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+    cursor:pointer;
+  }
+  .more-btn {
+    background:rgba(255,255,255,0.04);
+    border-radius:8px;
+    padding:10px 14px;
+    color:#fff;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero-content{ max-width:65%; padding:30px;}
+    .thumb { width:100px; height:62px; }
+    .thumb-rail{ right:18px; bottom:12px;}
+    .hero{min-height:360px}
+  }
+
+  @media (max-width:600px){
+    .hero{ height:48vh; min-height:220px; align-items:flex-end;}
+    .hero-content{ max-width:100%; padding:18px; }
+    .thumb-rail{ position:relative; right:auto; bottom:auto; margin-top:12px; justify-content:center; }
+    .thumb-list{ background:transparent; padding:0; gap:8px; }
+    .thumb { width:86px; height:52px; border-radius:6px; }
+    .hero-rule { display:none; }
+    .eyebrow{ display:none; } /* keep hero tidy on tiny screens */
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- big media element (we fade this via JS) -->
+  <img class="hero-media" src="https://picsum.photos/id/1011/1600/900" alt="" style="opacity:1">
+
+  <!-- overlay gradients -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- left content -->
+  <div class="hero-content">
+    <span class="eyebrow">Special Trailer</span>
+    <span class="hero-date" id="heroDate">2025-10-31</span>
+    <h2 class="hero-title" id="heroTitle">[Example] Cinematic Image</h2>
+  </div>
+
+  <!-- thin accent rule -->
+  <div class="hero-rule"></div>
+
+  <!-- bottom-left CTA -->
+  <div class="hero-cta">
+    <div class="play-btn" title="Play"><span>▶</span></div>
+    <button class="more-btn">More Videos</button>
+  </div>
+
+  <!-- thumbnail rail bottom-right -->
+  <div class="thumb-rail">
+    <div class="rail-arrow" id="railPrev" title="Prev">
+      <!-- left chevron -->
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+    </div>
+
+    <div class="thumb-list" id="thumbList">
+      <!-- each thumb has data attributes for hero text -->
+      <div class="thumb thumb--active" data-src="https://picsum.photos/id/1011/1600/900"
+           data-title="[Arknights] Endfield Beta Test II PV" data-date="2025-10-31" aria-label="slide 1">
+        <img src="https://picsum.photos/id/1011/320/180" alt="">
+      </div>
+
+      <div class="thumb" data-src="https://picsum.photos/id/1015/1600/900"
+           data-title="Endfield: Teaser" data-date="2025-09-18">
+        <img src="https://picsum.photos/id/1015/320/180" alt="">
+      </div>
+
+      <div class="thumb" data-src="https://picsum.photos/id/1025/1600/900"
+           data-title="Special Clip" data-date="2025-08-03">
+        <img src="https://picsum.photos/id/1025/320/180" alt="">
+      </div>
+
+      <div class="thumb" data-src="https://picsum.photos/id/1035/1600/900"
+           data-title="Developer Commentary" data-date="2025-05-12">
+        <img src="https://picsum.photos/id/1035/320/180" alt="">
+      </div>
+
+      <div class="thumb" data-src="https://picsum.photos/id/1045/1600/900"
+           data-title="Cinematic Trailer" data-date="2025-01-01">
+        <img src="https://picsum.photos/id/1045/320/180" alt="">
+      </div>
+
+      <div class="thumb" data-src="https://picsum.photos/id/1055/1600/900"
+           data-title="Behind the Scenes" data-date="2024-12-05">
+        <img src="https://picsum.photos/id/1055/320/180" alt="">
+      </div>
+    </div>
+
+    <div class="rail-arrow" id="railNext" title="Next">
+      <!-- right chevron -->
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </div>
+  </div>
+</section>
+
+<script>
+/*
+  Minimal JS to:
+   - wire thumbnail clicks to fade main hero image
+   - set active thumbnail styling
+   - prev/next arrows scroll the rail (and change active)
+*/
+(function(){
+  const heroImg = document.querySelector('.hero-media');
+  const titleEl = document.getElementById('heroTitle');
+  const dateEl = document.getElementById('heroDate');
+  const thumbs = Array.from(document.querySelectorAll('.thumb'));
+  const rail = document.getElementById('thumbList');
+  const prevBtn = document.getElementById('railPrev');
+  const nextBtn = document.getElementById('railNext');
+
+  let activeIndex = thumbs.findIndex(t => t.classList.contains('thumb--active')) || 0;
+
+  function setActive(i){
+    if(i < 0) i = 0;
+    if(i >= thumbs.length) i = thumbs.length - 1;
+    if(i === activeIndex) return;
+    const newThumb = thumbs[i];
+
+    // fade out -> change src -> fade in
+    heroImg.style.opacity = 0;
+    // once faded out, change src, then fade in on load
+    heroImg.onload = () => {
+      heroImg.style.opacity = 1;
+    };
+    heroImg.src = newThumb.dataset.src;
+
+    // update metadata
+    titleEl.textContent = newThumb.dataset.title || '';
+    dateEl.textContent = newThumb.dataset.date || '';
+
+    // active class
+    thumbs[activeIndex].classList.remove('thumb--active');
+    newThumb.classList.add('thumb--active');
+    activeIndex = i;
+
+    // keep active thumb visible
+    newThumb.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  }
+
+  // initial load (ensure hero image matches active thumb)
+  (function init(){
+    const start = thumbs[activeIndex];
+    heroImg.src = start.dataset.src;
+    titleEl.textContent = start.dataset.title;
+    dateEl.textContent = start.dataset.date;
+    heroImg.style.opacity = 1;
+  })();
+
+  // click handlers
+  thumbs.forEach((t, idx) => {
+    t.addEventListener('click', e => setActive(idx));
+  });
+
+  // arrow handlers (move active)
+  prevBtn.addEventListener('click', () => setActive(activeIndex-1));
+  nextBtn.addEventListener('click', () => setActive(activeIndex+1));
+
+  // also allow arrows to scroll the rail only (optional)
+  prevBtn.addEventListener('dblclick', ()=> rail.scrollBy({left:-200, behavior:'smooth'}));
+  nextBtn.addEventListener('dblclick', ()=> rail.scrollBy({left:200, behavior:'smooth'}));
+})();
+</script>
+
+</body>
+</html>

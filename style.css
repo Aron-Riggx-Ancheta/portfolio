@@ -284,21 +284,49 @@ a {
   }
 }
 
-.wip-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
+.carousel-frame {
+  aspect-ratio: 16 / 9;
   width: 100%;
-  z-index: 9999;
 
-  padding: 0.6rem 1rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  background: linear-gradient(90deg, #1d3b2a, #183123);
+  background: #121212;
+  overflow: hidden;
+}
 
-  color: #efefef;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+.carousel-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
-  border-bottom: 1px solid rgba(138, 154, 91, 0.4);
+.carousel-item {
+  transition: opacity 0.4s ease;
+}
+
+.carousel.carousel-fade .carousel-item {
+  transition: opacity 0.6s ease-in-out;
+}
+
+.carousel.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #8a9a5b;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.carousel-indicators .active {
+  background-color: #efefef;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: rgba(0, 0, 0, 0.25);
+  width: 48px;
 }
