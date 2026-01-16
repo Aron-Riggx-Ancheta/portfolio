@@ -3,7 +3,7 @@
 }
 
 .hero-text {
-  font-family: "Epilogue", sans-serif;
+  font-family: "Space Mono", monospace;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -33,17 +33,17 @@
 }
 
 .bordertext {
-  font-family: "Epilogue", sans-serif;
+  font-family: "Space Mono", monospace;
   font-weight: 800;
-  color: #333333;
+  color: #fcfcfc;
   text-shadow: 2px 2px #8a9a5b;
 }
 
 .ts-icon {
   width: 64px;
   height: 64px;
+  background-color: #8a9a5b;
   object-fit: contain;
-  border-radius: 8px;
 
   box-shadow: 0 0 0 1px rgba(138, 154, 91, 0.4), 0 6px 20px rgba(0, 0, 0, 0.5);
 
@@ -60,13 +60,18 @@ footer {
 }
 
 .ftr-icon {
+  background-color: #fafafa;
   box-shadow: 2px 2px#183123;
   width: 48px;
   height: 48px;
 }
 
+.ftr-icon:hover {
+  transform: translateY(-4px) scale(1.08);
+}
+
 .ftrtext {
-  font-family: "Epilogue", sans-serif;
+  font-family: "Space Mono", monospace;
   text-align: center;
   color: #faf6f6;
 }
@@ -123,19 +128,15 @@ a {
 
 .panel {
   position: relative;
-  width: 220px;
+  width: 228px;
   height: 520px;
-  background: #000;
   overflow: hidden;
 
-  transform: skewX(-8deg);
-  transition: transform 0.4s ease, filter 0.4s ease;
   box-shadow: 5px 5px #8a9a5b;
-  filter: brightness(0.8);
+  filter: brightness(0.75);
 }
 
 .panel:hover {
-  transform: skewX(-8deg) translateY(-10px);
   filter: brightness(1);
 }
 
@@ -173,9 +174,6 @@ a {
   top: 1.5rem;
   left: 1.5rem;
   z-index: 2;
-
-  transform: skewX(8deg);
-
   display: block;
 }
 
@@ -183,9 +181,9 @@ a {
   display: block;
   font-size: 0.75rem;
   letter-spacing: 0.25em;
-  color: #5d6b33;
-  text-shadow: 1px 1px #f3f3f3;
+  color: #f3f3f3;
   text-transform: uppercase;
+  text-shadow: 1px 1px #183123;
 }
 
 .panel-heading {
@@ -226,7 +224,6 @@ a {
 
   font-size: 1.8rem;
   color: #8a9a5b;
-  transform: skewX(8deg);
 }
 
 @media (max-width: 768px) {
