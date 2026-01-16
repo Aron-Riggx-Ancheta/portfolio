@@ -40,9 +40,19 @@
 }
 
 .ts-icon {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
+  border-radius: 8px;
+
+  box-shadow: 0 0 0 1px rgba(138, 154, 91, 0.4), 0 6px 20px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.ts-icon:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 0 0 1px #8a9a5b, 0 12px 30px rgba(138, 154, 91, 0.35);
 }
 
 footer {
@@ -126,7 +136,7 @@ a {
 
 .panel:hover {
   transform: skewX(-8deg) translateY(-10px);
-  filter: brightness(1.0);
+  filter: brightness(1);
 }
 
 .panel-image {
@@ -148,7 +158,7 @@ a {
 }
 
 .panel:hover .panel-heading {
-  color: #8a9a5b;
+  color: #5c6b2f;
   transition-delay: -0.5s;
   transition-property: color;
 }
@@ -206,35 +216,6 @@ a {
   opacity: 0;
   transform: translateY(5px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.panel-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-
-  transition: max-height 0.6s ease, opacity 0.4s ease;
-
-  margin-top: 2rem;
-  padding: 0 1rem;
-
-  border-top: 1px solid rgba(138, 154, 91, 0.3);
-}
-
-.panel-details.active {
-  max-height: 300px;
-  opacity: 1;
-}
-
-.panel-details h3 {
-  margin-top: 1.5rem;
-  font-size: 1.8rem;
-  color: #8a9a5b;
-}
-
-.panel-details p {
-  max-width: 600px;
-  color: rgba(239, 239, 239, 0.85);
 }
 
 .panel-arrow {
@@ -301,4 +282,23 @@ a {
     bottom: 50%;
     translate: 0 50%;
   }
+}
+
+.wip-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  padding: 0.6rem 1rem;
+  text-align: center;
+
+  background: linear-gradient(90deg, #1d3b2a, #183123);
+
+  color: #efefef;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+
+  border-bottom: 1px solid rgba(138, 154, 91, 0.4);
 }

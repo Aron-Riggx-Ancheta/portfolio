@@ -48,17 +48,17 @@
       inset: 0;
       background: repeating-linear-gradient(
           90deg,
-          rgba(138, 154, 91, 0.05) 0,
-          rgba(138, 154, 91, 0.05) 1px,
+          rgba(138, 154, 91, 0.24) 0,
+          rgba(138, 154, 91, 0.08) 1px,
           transparent 1px,
-          transparent 90px
+          transparent 80px
         ),
         repeating-linear-gradient(
           0deg,
-          rgba(138, 154, 91, 0.05) 0,
-          rgba(138, 154, 91, 0.05) 1px,
+          rgba(138, 154, 91, 0.48) 0,
+          rgba(138, 154, 91, 0.08) 1px,
           transparent 1px,
-          transparent 90px
+          transparent 120px
         );
 
       z-index: -1;
@@ -107,6 +107,12 @@
 
   <body>
     <div class="loader"></div>
+    <div class="wip-banner">
+      <span
+        >🚧 Portfolio in progress — some sections are still under
+        construction</span
+      >
+    </div>
     <div class="hero hero-img container-fluid">
       <div class="hero-text">
         <h1 class="display-1 text">> the latest</h1>
@@ -126,17 +132,17 @@
         <div class="row">
           <img
             src="resources/images/placeholder2.png"
-            class="img-fluid mx-auto p-3 w-50 h-50"
+            class="img-fluid mx-auto p-3 w-75 h-50"
           />
           <p class="p-3" style="color: #f3f3f3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </div>
-        <h4 style="color: #f3f3f3">
+        <h3 style="color: #f3f3f3">
           These are the technologies I have experience with:
-        </h4>
+        </h3>
         <div
-          class="row row-cols-3 row-cols-lg-auto g-3 justify-content-center p-3"
+          class="row row-cols-3 row-cols-md-auto g-3 justify-content-center p-3"
         >
           <div class="col">
             <img
@@ -330,6 +336,9 @@
                 <span class="panel-eyebrow">CAPSTONE</span>
               </div>
               <h2 class="panel-heading">FeedEat</h2>
+              <p class="panel-desc d-none d-md-block">
+                FeedEat is a social media website built for the
+              </p>
             </div>
 
             <div class="panel-image">
@@ -338,11 +347,6 @@
 
             <span class="panel-arrow">›</span>
           </div>
-        </div>
-
-        <div class="panel-details" id="panelDetails">
-          <h3 id="detailsTitle"></h3>
-          <p id="detailsDesc"></p>
         </div>
       </section>
 
@@ -354,9 +358,7 @@
         </div>
       </div>
 
-      <section class="carousel container text-center">
-        
-      </section>
+      <section class="carousel container text-center"></section>
     </main>
 
     <footer class="container-fluid text-center p-3 mt-5">
