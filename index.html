@@ -1,492 +1,637 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Ancheta - Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio made by Aron Riggx M. Ancheta"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="resources/icons/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="resources/icons/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="resources/icons/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://api.fonts.coollabs.io" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fonts.coollabs.io/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="resources/icons/favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="resources/icons/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="resources/icons/favicon/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preconnect" href="https://api.fonts.coollabs.io" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fonts.coollabs.io/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <div class="loader"></div>
 
-<style>
-  @media (prefers-reduced-motion: reduce) {
-  body::before {
-    animation: none;
-  }
-}
-
-  body {
-    background-color: #0a0a0a;
-    font-family: "Space Mono", monospace;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(90deg,
-        rgba(138, 154, 91, 0.24) 0,
-        rgba(138, 154, 91, 0.08) 1px,
-        transparent 1px,
-        transparent 80px),
-      repeating-linear-gradient(0deg,
-        rgba(138, 154, 91, 0.48) 0,
-        rgba(138, 154, 91, 0.08) 1px,
-        transparent 1px,
-        transparent 120px);
-
-    animation: gridScroll 40s linear infinite;
-
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  @keyframes gridScroll {
-    from {
-      transform: translateY(0);
-    }
-
-    to {
-      transform: translateY(50%);
-    }
-  }
-
-
-  .loader {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #333333;
-
-    opacity: 1;
-    visibility: visible;
-
-    transition: opacity 1.5s ease, visibility 0s linear 1.5s;
-  }
-
-  .loader--hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .loader::after {
-    content: "";
-    width: 75px;
-    height: 75px;
-    border: 15px solid #dddddd;
-    border-top-color: #8a9a5b;
-    border-radius: 50%;
-    animation: loading 0.75s ease infinite;
-  }
-
-  @keyframes loading {
-    from {
-      transform: rotate(0turn);
-    }
-
-    to {
-      transform: rotate(1turn);
-    }
-  }
-</style>
-
-<body>
-  <div class="loader"></div>
-
-  <div class="hero hero-img container-fluid">
-    <div class="hero-text">
-      <h1 class="display-1 text">> the latest</h1>
-      <h4 class="text-md-center text-lg-end">from aron riggx ancheta</h4>
+    <div class="hero hero-img container-fluid">
+      <div class="hero-text">
+        <h1 class="display-1 text">> the latest</h1>
+        <h2 class="text-md-center text-lg-end">from aron riggx ancheta</h2>
+      </div>
     </div>
-  </div>
 
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <section class="container text-center">
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 col-lg-4" data-aos="fade-right">
+            <section class="container text-center">
+              <div class="container-fluid p-3 mt-3 text-center">
+                <div class="row">
+                  <div class="col-12">
+                    <h2 class="bordertext p-3 m-3">> about me</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <img
+                  src="resources/images/portrait.png"
+                  class="img-fluid mx-auto p-1"
+                  alt="Portrait of the creator"
+                />
+                <p class="p-3" style="color: #f3f3f3">
+                  I am proficient in the use of HTML, CSS and Bootstrap to
+                  create my websites. For coding I use VSCode as my code editor
+                  and use ChatGPT for minor assistance. For designing websites,
+                  I use Figma and Canva and for my illustrations I have used
+                  Clip Studio Paint, and Aseprite. I also have intermediate
+                  experience with PHP, SQL, MySQL, JavaScript, WordPress
+                  (Elementor) and Premiere Pro, along with some experience in
+                  computer support and troubleshooting issues using CMD.
+                </p>
+              </div>
+              <div
+                class="row row-cols-3 row-cols-md-auto g-4 justify-content-center p-3"
+              >
+                <div class="col">
+                  <img
+                    src="resources/icons/html-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="HTML5"
+                    alt="HTML logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/css-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="CSS"
+                    alt="CSS logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/bstrap-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Bootstrap"
+                    alt="Bootstrap logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/vscode-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="VSCode"
+                    alt="Visual Studio Code logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/chatgpt-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="ChatGPT"
+                    alt="ChatGPT logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/php-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="PHP"
+                    alt="PHP logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/sql-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="SQL"
+                    alt="SQL logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/mysql-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="MySQL"
+                    alt="MySQL logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/js-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Javascript"
+                    alt="Javascript logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/elementor-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="WordPress (Elementor)"
+                    alt="Elementor logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/premiere-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Premiere Pro"
+                    alt="Premiere Pro logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/figma-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Figma"
+                    alt="Figma logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/canva-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Canva"
+                    alt="Canva logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/csp-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Clip Studio Paint"
+                    alt="Clip Studio Paint logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/asp-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Aseprite"
+                    alt="Aseprite logo"
+                  />
+                </div>
+                <div class="col">
+                  <img
+                    src="resources/icons/gmk-ico-white.svg"
+                    class="ts-icon p-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="GameMaker"
+                    alt="GameMaker logo"
+                  />
+                </div>
+              </div>
+              <p class="p-3" style="color: #f3f3f3">
+                You may contact me through here or my socials below:
+                anchetaaronriggx@gmail.com
+              </p>
+            </section>
+          </div>
+          <div class="col-md-12 col-lg-8" data-aos="fade-down">
             <div class="container-fluid p-3 mt-3 text-center">
               <div class="row">
                 <div class="col-12">
-                  <h1 class="display-5 bordertext p-3 m-3">> about me</h1>
+                  <h2 class="bordertext p-3 m-3">> projects</h2>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <img src="resources/images/portrait.png" class="img-fluid mx-auto p-3" />
-              <p class="p-3" style="color: #f3f3f3">
-                I am proficient in the use of HTML, CSS and Bootstrap to create my
-                websites. For coding I use VSCode as my code editor and use
-                ChatGPT for minor assistance. For designing websites, I use Figma and Canva and for my illustrations I
-                have
-                used Clip Studio Paint, and Aseprite. I also have intermediate experience with PHP, SQL, MySQL,
-                JavaScript, WordPress (Elementor) and Premiere Pro, along with some experience in computer support and
-                troubleshooting issues using CMD.
-              </p>
+
+            <section class="panel-container container-fluid">
+              <div class="panels">
+                <div class="panel">
+                  <div class="panel-title">
+                    <div class="row">
+                      <span class="panel-eyebrow">2023</span>
+                    </div>
+                    <h2 class="panel-heading">BATTLEForge</h2>
+                    <p class="panel-desc d-none d-md-block">
+                      Group project. A social forum website created in the time
+                      of the pandemic meant to enable the FGC (Fighting Game
+                      Community) to find a place where they could re-link and
+                      find new or old FGC players to play with.
+                    </p>
+                    <p class="panel-desc d-none d-md-block">
+                      Built using HTML, CSS, Js and PHP. I created the idea for
+                      the project and took part in deciding the colors, themes
+                      and general vibe of the final website.
+                    </p>
+                  </div>
+
+                  <div class="panel-image">
+                    <img
+                      src="resources/images/battle_forge.png"
+                      alt="BATTLEForge Thumbnail"
+                    />
+                  </div>
+
+                  <span class="panel-arrow">››</span>
+                </div>
+
+                <div class="panel">
+                  <div class="panel-title">
+                    <div class="row">
+                      <span class="panel-eyebrow">2024</span>
+                    </div>
+                    <h2 class="panel-heading">WALL CLIMB</h2>
+                    <p class="panel-desc d-none d-md-block">
+                      Group project. An infinite platformer game that tested the
+                      limits of the genre by making it multiplayer and having 6
+                      players at the same time attempting to outrun the others.
+                    </p>
+                    <p class="panel-desc d-none d-md-block">
+                      Built in GameMaker. I handled the story, character design
+                      and coding of the project.
+                    </p>
+                  </div>
+
+                  <div class="panel-image">
+                    <img
+                      src="resources/images/wall_climb.png"
+                      alt="WALL CLIMB Thumbnail"
+                    />
+                  </div>
+
+                  <span class="panel-arrow">››</span>
+                </div>
+
+                <div class="panel">
+                  <div class="panel-title">
+                    <div class="row">
+                      <span class="panel-eyebrow">2025</span>
+                    </div>
+                    <h2 class="panel-heading">Olympic Hunters..?</h2>
+                    <p class="panel-desc d-none d-md-block">
+                      Solo project. We were tasked with creating a "what-if?"
+                      scenario where something of our choosing would be stylized
+                      according to the design and aesthetics of the Olympics
+                      website. For this project, I chose to give the world of
+                      Monster Hunter this look.
+                    </p>
+                    <p class="panel-desc d-none d-md-block">
+                      Built using HTML, CSS, Js and Bootstrap.
+                    </p>
+                  </div>
+
+                  <div class="panel-image">
+                    <img
+                      src="resources/images/mh.png"
+                      alt="Monster Hunter Website Thumbnail"
+                    />
+                  </div>
+
+                  <span class="panel-arrow">››</span>
+                </div>
+
+                <div class="panel">
+                  <div class="panel-title">
+                    <div class="row">
+                      <span class="panel-eyebrow">2025</span>
+                    </div>
+                    <h2 class="panel-heading">FeedEat</h2>
+                    <p class="panel-desc d-none d-md-block">
+                      Capstone project. FeedEat is a social media website built
+                      for an audience that wants to share specifically their
+                      personal diets and recipes for other people to see and
+                      interact with. The website also makes use of an AI chatbot
+                      that allows generation of recipes for Filipino meals using
+                      the ingredients they currently have on hand or in their
+                      kitchen.
+                    </p>
+                    <p class="panel-desc d-none d-md-block">
+                      Built using HTML, CSS, Js, Bootstrap and PHP.
+                    </p>
+                  </div>
+
+                  <div class="panel-image">
+                    <img
+                      src="resources/images/feed_eat.png"
+                      alt="Capstone Thumbnail"
+                    />
+                  </div>
+
+                  <span class="panel-arrow">››</span>
+                </div>
+                <div class="panel">
+                  <div class="panel-title">
+                    <div class="row">
+                      <span class="panel-eyebrow">???</span>
+                    </div>
+                    <h2 class="panel-heading">The Future...</h2>
+                    <p class="panel-desc d-none d-md-block">
+                      Unlocks in ??:??:?? at ??/??/????
+                    </p>
+                  </div>
+
+                  <div class="panel-image">
+                    <img
+                      src="resources/images/unknown.jpg"
+                      alt="Future projects Thumbnail"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="container-fluid p-3 mt-3 text-center" data-aos="fade-up">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="bordertext p-3 m-3">> illustrations</h2>
+                </div>
+              </div>
             </div>
-            <div class="row row-cols-3 row-cols-md-auto g-4 justify-content-center p-3">
-              <div class="col">
-                <img src="resources/icons/html-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="HTML5" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/css-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="CSS" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/bstrap-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="Bootstrap" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/vscode-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="VSCode" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/chatgpt-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="ChatGPT" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/php-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="PHP" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/sql-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="SQL" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/mysql-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="MySQL" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/js-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="JavaScript" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/elementor-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="WordPress (Elementor)" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/premiere-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="Premiere Pro" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/figma-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="Figma" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/canva-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="Canva" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/csp-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="Clip Studio Paint" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/asp-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="Aseprite" />
-              </div>
-              <div class="col">
-                <img src="resources/icons/gmk-ico-white.svg" class="ts-icon p-2" data-bs-toggle="tooltip"
-                  data-bs-placement="top" title="GameMaker" />
-              </div>
-            </div>
-            <p class="p-3" style="color: #f3f3f3">
-              You may contact me through here or my socials below: anchetaaronriggx@gmail.com
-            </p>
-          </section>
-        </div>
-        <div class="col-12 col-lg-8">
-          <div class="container-fluid p-3 mt-3 text-center">
-            <div class="row">
-              <div class="col-12">
-                <h1 class="display-5 bordertext p-3 m-3">
-                  > projects
-                </h1>
+
+            <div class="carousel container text-center" data-aos="fade-up">
+              <div
+                id="portfolioCarousel"
+                class="carousel slide carousel-fade"
+                data-bs-ride="false"
+              >
+                <div class="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#portfolioCarousel"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#portfolioCarousel"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#portfolioCarousel"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#portfolioCarousel"
+                    data-bs-slide-to="3"
+                    aria-label="Slide 4"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#portfolioCarousel"
+                    data-bs-slide-to="4"
+                    aria-label="Slide 5"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#portfolioCarousel"
+                    data-bs-slide-to="5"
+                    aria-label="Slide 6"
+                  ></button>
+                </div>
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="carousel-frame">
+                      <img
+                        src="resources/images/artwork1.png"
+                        alt="Digital fan art of Moon Knight from Marvel"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="carousel-frame">
+                      <img
+                        src="resources/images/artwork2.png"
+                        alt="Digital fan art of Zinogre from Monster Hunter"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="carousel-frame">
+                      <img
+                        src="resources/images/artwork3.png"
+                        alt="Digital art depicting two flames that are in-love"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="carousel-frame">
+                      <img
+                        src="resources/images/artwork4.png"
+                        alt="Pixel art of a zombie infected player from a modded Minecraft playthrough"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="carousel-frame">
+                      <img
+                        src="resources/images/artwork5.jpg"
+                        alt="Digital fan art of Marvel's Moon Knight and DC's Doctor Fate"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="carousel-frame">
+                      <img
+                        src="resources/images/artwork6.jpg"
+                        alt="Digital fan art of the three main characters of Dark Souls"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#portfolioCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#portfolioCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
             </div>
           </div>
-
-          <section class="panel-container container-fluid">
-            <div class="panels">
-              <div class="panel">
-                <div class="panel-title">
-                  <div class="row">
-                    <span class="panel-eyebrow">2023</span>
-                  </div>
-                  <h2 class="panel-heading">BATTLEForge</h2>
-                  <p class="panel-desc d-none d-md-block">
-                    Group project. A social forum website created in the time
-                    of the pandemic meant to enable the FGC (Fighting Game
-                    Community) to find a place where they could re-link and
-                    find new or old FGC players to play with.
-                  </p>
-                  <p class="panel-desc d-none d-md-block">
-                    Built using HTML, CSS, Js and PHP. I created the idea for
-                    the project and took part in deciding the colors, themes
-                    and general vibe of the final website.
-                  </p>
-                </div>
-
-                <div class="panel-image">
-                  <img src="resources/images/battleforge.png" alt="" />
-                </div>
-
-                <span class="panel-arrow">››</span>
-              </div>
-
-              <div class="panel">
-                <div class="panel-title">
-                  <div class="row">
-                    <span class="panel-eyebrow">2024</span>
-                  </div>
-                  <h2 class="panel-heading">WALL CLIMB</h2>
-                  <p class="panel-desc d-none d-md-block">
-                    Group project. An infinite platformer game that tested the
-                    limits of the genre by making it multiplayer and having 6
-                    players at the same time attempting to outrun the others.
-                  </p>
-                  <p class="panel-desc d-none d-md-block">
-                    Built in GameMaker. I handled the story, character design
-                    and coding of the project.
-                  </p>
-                </div>
-
-                <div class="panel-image">
-                  <img src="resources/images/wall climb.png" alt="" />
-                </div>
-
-                <span class="panel-arrow">››</span>
-              </div>
-
-              <div class="panel">
-                <div class="panel-title">
-                  <div class="row">
-                    <span class="panel-eyebrow">2025</span>
-                  </div>
-                  <h2 class="panel-heading">Olympic Hunters..?</h2>
-                  <p class="panel-desc d-none d-md-block">
-                    Solo project. Monster Hunter themed website also stylized
-                    to be like if they had their version of the Olympics.
-                  </p>
-                  <p class="panel-desc d-none d-md-block">
-                    Built using HTML, CSS, Js and Bootstrap.
-                  </p>
-                </div>
-
-                <div class="panel-image">
-                  <img src="resources/images/mh.png" alt="" />
-                </div>
-
-                <span class="panel-arrow">››</span>
-              </div>
-
-              <div class="panel">
-                <div class="panel-title">
-                  <div class="row">
-                    <span class="panel-eyebrow">2025</span>
-                  </div>
-                  <h2 class="panel-heading">FeedEat</h2>
-                  <p class="panel-desc d-none d-md-block">
-                    Capstone project. FeedEat is a social media website built
-                    for an audience that wants to share specifically their
-                    personal diets and recipes for other people to see and
-                    interact with. The website also makes use of an AI chatbot
-                    that allows generation of recipes for Filipino meals using
-                    the ingredients they currently have on hand or in their
-                    kitchen.
-                  </p>
-                  <p class="panel-desc d-none d-md-block">
-                    Built using HTML, CSS, Js, Bootstrap and PHP.
-                  </p>
-                </div>
-
-                <div class="panel-image">
-                  <img src="resources/images/feedEat.png" alt="" />
-                </div>
-
-                <span class="panel-arrow">››</span>
-              </div>
-              <div class="panel">
-                <div class="panel-title">
-                  <div class="row">
-                    <span class="panel-eyebrow">???</span>
-                  </div>
-                  <h2 class="panel-heading">The Future...</h2>
-                  <p class="panel-desc d-none d-md-block">
-                    Unlocks in ??:??:?? at ??/??/????
-                  </p>
-                </div>
-
-                <div class="panel-image">
-                  <img src="resources/images/unknown.jpg" alt="" />
-                </div>
-              </div>
-          </section>
-
-          <div class="container-fluid p-3 mt-3 text-center">
-            <div class="row">
-              <div class="col-12">
-                <h1 class="display-5 bordertext p-3 m-3">> illustrations</h1>
-              </div>
-            </div>
-          </div>
-
-          <section class="container text-center">
-            <div id="portfolioCarousel" class="carousel slide carousel-fade" data-bs-ride="false">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active"
-                  aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1"
-                  aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="2"
-                  aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="3"
-                  aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="4"
-                  aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="5"
-                  aria-label="Slide 6"></button>
-              </div>
-
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="carousel-frame">
-                    <img src="resources/images/artwork1.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div class="carousel-frame">
-                    <img src="resources/images/artwork2.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div class="carousel-frame">
-                    <img src="resources/images/artwork3.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div class="carousel-frame">
-                    <img src="resources/images/artwork4.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div class="carousel-frame">
-                    <img src="resources/images/artwork5.jpg" alt="" />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div class="carousel-frame">
-                    <img src="resources/images/artwork6.jpg" alt="" />
-                  </div>
-                </div>
-              </div>
-
-              <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-
-              <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </section>
         </div>
       </div>
-    </div>
-  </main>
-
-  <footer class="container-fluid text-center p-3 mt-5">
-    <div class="row mt-3">
-      <div class="col-12">
-        <a href="https://www.facebook.com/aronriggxm/">
-          <img src="resources/icons/fb-ico-min.svg" class="ftr-icon p-2" />
-        </a>
-        <a href="https://www.linkedin.com/in/aronriggxancheta/">
-          <img src="resources/icons/linkedin-ico-min.svg" class="ftr-icon p-2" />
-        </a>
-        <a href="https://github.com/Aron-Riggx-Ancheta">
-          <img src="resources/icons/github-ico-min.svg" class="ftr-icon p-2" />
-        </a>
-        <a href="https://www.instagram.com/ronrgx/">
-          <img src="resources/icons/instagram-ico-min.svg" class="ftr-icon p-2" />
-        </a>
-        <a href="https://www.artstation.com/aronriggxancheta">
-          <img src="resources/icons/artstation-ico-min.svg" class="ftr-icon p-2" />
-        </a>
+    </main>
+    <footer class="container-fluid text-center p-3 mt-5">
+      <div class="row mt-3">
+        <div class="col-12">
+          <a href="https://www.facebook.com/aronriggxm/">
+            <img
+              src="resources/icons/fb-ico-min.svg"
+              class="ftr-icon p-2"
+              alt="FB logo"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/aronriggxancheta/">
+            <img
+              src="resources/icons/linkedin-ico-min.svg"
+              class="ftr-icon p-2"
+              alt="LinkedIn logo"
+            />
+          </a>
+          <a href="https://github.com/Aron-Riggx-Ancheta">
+            <img
+              src="resources/icons/github-ico-min.svg"
+              class="ftr-icon p-2"
+              alt="GitHub logo"
+            />
+          </a>
+          <a href="https://www.instagram.com/ronrgx/">
+            <img
+              src="resources/icons/instagram-ico-min.svg"
+              class="ftr-icon p-2"
+              alt="Instagram logo"
+            />
+          </a>
+          <a href="https://www.artstation.com/aronriggxancheta">
+            <img
+              src="resources/icons/artstation-ico-min.svg"
+              class="ftr-icon p-2"
+              alt="Artstation logo"
+            />
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-12">
-        <h6 class="ftrtext">© aron riggx ancheta ║ portfolio v2026</h6>
+      <div class="row mt-3">
+        <div class="col-12">
+          <p class="ftrtext">© aron riggx ancheta ║ portfolio v2026</p>
+        </div>
       </div>
-    </div>
-    <div class="row text-center p-1">
-      <div class="col-6">
-        <a href="2024/index.html">
-          <p class="ftrtext">← v2024</p>
-        </a>
+      <div class="row text-center p-1">
+        <div class="col-6">
+          <a href="2024/index.html">
+            <p class="ftrtext">← v2024</p>
+          </a>
+        </div>
+        <div class="col-6">
+          <a href="404.html">
+            <p class="ftrtext">→ 404</p>
+          </a>
+        </div>
       </div>
-      <div class="col-6">
-        <a href="404.html">
-          <p class="ftrtext">→ 404</p>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
-  <script>
-    const stylesheet = document.getElementById("my-stylesheet");
-    stylesheet.addEventListener("load", () => {
-      stylesheet.media = "all";
-    });
-  </script>
-  <script>
-    window.addEventListener("load", () => {
-      const loader = document.querySelector(".loader");
-
-      loader.classList.add("loader--hidden");
-
-      loader.addEventListener("transitionend", () => {
-        document.body.classList.add("page-loaded");
-        loader.remove();
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const stylesheet = document.getElementById("my-stylesheet");
+      stylesheet.addEventListener("load", () => {
+        stylesheet.media = "all";
       });
-    });
-  </script>
-  <script>
-    const tooltipTriggerList = document.querySelectorAll(
-      '[data-bs-toggle="tooltip"]'
-    );
-    const tooltipList = [...tooltipTriggerList].map(
-      (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-    );
-  </script>
-</body>
+    </script>
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
 
+        loader.classList.add("loader--hidden");
+
+        loader.addEventListener("transitionend", () => {
+          document.body.classList.add("page-loaded");
+          loader.remove();
+        });
+      });
+    </script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]',
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
+      );
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>
