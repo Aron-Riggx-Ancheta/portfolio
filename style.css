@@ -2,6 +2,13 @@
   color-scheme: dark;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .hero-text {
   font-family: "Space Mono", monospace;
   text-align: center;
@@ -25,7 +32,7 @@
 .hero-img {
   height: 100vh;
   background-image: linear-gradient(#5b6a488c),
-    url("resources/images/placeholder1.png");
+    url("resources/images/hero.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -107,13 +114,6 @@ a {
 
 .page-loaded .section:nth-child(3) {
   transition-delay: 0.6s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
 }
 
 .panel-container {
