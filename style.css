@@ -89,6 +89,13 @@ body::before {
   position: fixed;
   z-index: -1;
 }
+
+.contactinfo {
+background-color: #efefef;
+color: #183123;
+font-weight: 800;
+}
+
 @-webkit-keyframes gridScroll {
   from {
     -webkit-transform: translateY(0);
@@ -341,7 +348,7 @@ a {
 }
 .panel {
   position: relative;
-  width: 228px;
+  width: 216px;
   height: 540px;
   overflow: hidden;
   -webkit-box-shadow: 5px 5px #8a9a5b;
@@ -408,7 +415,7 @@ a {
   text-shadow: 1px 1px #183123;
 }
 .panel-heading {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1;
   margin: 0.2rem 0 0;
