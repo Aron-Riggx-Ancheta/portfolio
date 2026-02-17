@@ -618,21 +618,15 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      const stylesheet = document.getElementById("my-stylesheet");
-      stylesheet.addEventListener("load", () => {
-        stylesheet.media = "all";
-      });
-    </script>
-    <script>
       window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
 
         loader.classList.add("loader--hidden");
 
-        loader.addEventListener("transitionend", () => {
+        setTimeout(() => {
           document.body.classList.add("page-loaded");
-          loader.remove();
-        });
+          if (loader) loader.remove();
+        }, 1600);
       });
     </script>
     <script>
@@ -648,5 +642,4 @@
       AOS.init();
     </script>
   </body>
-
 </html>
