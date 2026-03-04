@@ -41,20 +41,19 @@
   </head>
 
   <body>
-    <div
-      class="container-fluid text-center"
-      style="
-        background-image: url(resources/images/watcher.webp);
-        background-size: cover;
-        background-position: center;
-        background-repeat: repeat-y;
-        height: 100vh;
-        position: relative;
-      "
-    >
+    <div class="container-fluid text-center">
       <div class="position-absolute top-50 start-50 translate-middle">
-        <h1 style="color: red; font-size: 160px; font-weight: 800">404</h1>
-        <h2 class="p-3" id="randomText" style="color: red">
+        <h1
+          style="
+            color: #0b8135;
+            font-size: 160px;
+            font-weight: 800;
+            text-shadow: 8px 4px whitesmoke;
+          "
+        >
+          404
+        </h1>
+        <h2 class="p-3" id="randomText" style="color: #0b8135">
           You're not supposed to be here, dude.
         </h2>
         <a href="index.html">
@@ -66,7 +65,7 @@
               background-color: antiquewhite;
             "
           >
-            Get to safety.
+            GO BACK
           </h3>
         </a>
       </div>
@@ -86,6 +85,7 @@
           "I'm watching you.",
           "GET OUT!",
           "I hope you know what you're doing.",
+          "That's it, I'm getting my mallet!",
         ];
 
         const textElement = document.getElementById("randomText");
